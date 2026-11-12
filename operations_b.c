@@ -6,15 +6,16 @@
 /*   By: vduryee <vduryee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/12 10:42:44 by alegaspa          #+#    #+#             */
-/*   Updated: 2026/11/12 15:13:47 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/12 16:58:43 by alegaspa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
+#include <stdio.h>
 
 void	sb(t_stack *b)
 {
-	int	*temp;
+	int	temp;
 
 	if (b->size > 1)
 	{
@@ -27,19 +28,25 @@ void	sb(t_stack *b)
 void	pb(t_stack *a, t_stack *b)
 {
 	if (a->size > 0)
-		a->values[a->size - 1] = b->values[b->size];
+	{
+		b->values[b->size] = a->values[a->size - 1];
+		b->size++;
+		a->size--;
+	}
+	printf("%d\n", b->values[0]);
+	printf("%d\n", b->size);
 }
 
-void	rb(t_stack *b)
+void	rrb(t_stack *b)
 {
-	int	*tmp;
+	int	tmp;
 	int	i;
 	int	j;
 
 	i = b->size - 1;
 
 	tmp = b->values[i];
-	while (i > 1)
+	while (i > 0)
 	{
 		j = i - 1;
 		b->values[i] = b->values[j];
@@ -48,20 +55,20 @@ void	rb(t_stack *b)
 	b->values[j] = tmp;
 }
 
-void	rrb(t_stack *b)
+void	rb(t_stack *b)
 {
-	int	*tmp;
+	int	tmp;
 	int	i;
 	int	j;
 
 	i = 0;
-	j = 0;
+	j = 1;
 	tmp = b->values[i];
-	while (j < b->size)
+	while (i < b->size - 1)
 	{
-		j = i - 1;
+		i = j - 1;
 		b->values[i] = b->values[j];
-		i++;
+		j++;
 	}
 	b->values[i] = tmp;
 }
