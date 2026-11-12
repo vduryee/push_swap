@@ -6,9 +6,12 @@
 /*   By: vduryee <vduryee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/11 11:55:38 by vduryee           #+#    #+#             */
-/*   Updated: 2026/11/12 10:35:07 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/12 10:43:13 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef FT_PUSH_SWAP_H
+# define FT_PUSH_SWAP_H
 
 #include "ft_printf.h"
 #include <stddef.h>
@@ -27,3 +30,5 @@ typedef	struct s_stack
 /* The capacity of both our stacks (A and B) will always be the same n,
 	since to consider all scenarios, A or B could be filled with n values at some point;
 	this will ensure us that we can always store what we need.*/
+
+#endif
