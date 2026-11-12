@@ -6,10 +6,11 @@
 /*   By: vduryee <vduryee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/11 11:55:38 by vduryee           #+#    #+#             */
-/*   Updated: 2026/11/11 12:10:57 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/12 10:35:07 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 #include <stddef.h>
 
 typedef	struct s_stack
