@@ -6,11 +6,11 @@
 /*   By: vduryee <vduryee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/13 10:33:22 by vduryee           #+#    #+#             */
-/*   Updated: 2026/11/13 11:12:24 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/13 12:23:54 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ops.h"
 
 int dswap(t_stack *a, t_stack *b)
 {

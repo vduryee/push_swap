@@ -6,7 +6,7 @@
 /*   By: vduryee <vduryee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/12 10:42:44 by alegaspa          #+#    #+#             */
-/*   Updated: 2026/11/13 11:36:55 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/13 12:16:30 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void	swap(t_stack *s)
 
 	if (s->size > 1)
 	{
-		tmp = s->values[0];
-		s->values[0] = s->values[1];
-		s->values[1] = tmp;
+		tmp = s->values[s->size - 1];
+		s->values[s->size - 1] = s->values[s->size - 2];
+		s->values[s->size - 2] = tmp;
 	}
 }
 

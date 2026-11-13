@@ -6,7 +6,7 @@
 /*   By: vduryee <vduryee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/12 15:23:48 by alegaspa          #+#    #+#             */
-/*   Updated: 2026/11/13 11:51:35 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/13 12:25:50 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,17 @@ int main()
 	t_stack a = {ta, 5, 5};
 	t_stack b = {tb, 0, 5};
 
-	rotate(&a);
+	// rotate(&a);
+	// push(&a, &b);
+	// rev_rotate(&a);
+	// push(&a, &b);
+	// rev_rotate(&a);
+	// push(&a, &b);
 	push(&a, &b);
-	rev_rotate(&a);
 	push(&a, &b);
-	rev_rotate(&a);
-	push(&a, &b);
-	push(&a, &b);
-	push(&a, &b);
+	// drev_rotate(&a, &b);
 
+	rev_rotate(&a);
 	while (i > -1)
 	{
 		printf("%d", a.values[i]);
