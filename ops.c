@@ -6,15 +6,20 @@
 /*   By: vduryee <vduryee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/12 10:42:44 by alegaspa          #+#    #+#             */
-/*   Updated: 2026/11/13 12:16:30 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/13 15:53:46 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "ops.h"
 
-void	swap(t_stack *s)
+//remove this comment only when deleting stdio
+#include <stdio.h>
+
+void	swap(t_stack *s, t_counter *count, char c)
 {
 	int	tmp;
+
 
 	if (s->size > 1)
 	{
@@ -22,9 +27,14 @@ void	swap(t_stack *s)
 		s->values[s->size - 1] = s->values[s->size - 2];
 		s->values[s->size - 2] = tmp;
 	}
+	if (c == 'a')
+		count->sa++;
+	else if (c == 'b')
+		count->sb++;
+	printf("s%c\n", c);
 }
 
-void	push(t_stack *from, t_stack *to)
+void	push(t_stack *from, t_stack *to, t_counter *count, char c)
 {
 	if(!from || !to)
 		return ;
@@ -35,12 +45,18 @@ void	push(t_stack *from, t_stack *to)
 		to->size++;
 		from->size--;
 	}
+	if (c == 'a')
+		count->pa++;
+	else if (c == 'b')
+		count->pb++;
+	printf("p%c\n", c);
+
 }
 
-void	rotate(t_stack *s)
+void	rotate(t_stack *s, t_counter *count, char c)
 {
 	int	tmp;
-	unsigned long	i;
+	size_t	i;
 	int	j;
 
 	if(!s)
@@ -55,9 +71,15 @@ void	rotate(t_stack *s)
 		j++;
 	}
 	s->values[i] = tmp;
+	if (c == 'a')
+		count->ra++;
+	else if (c == 'b')
+		count->rb++;
+	printf("r%c\n", c);
+
 }
 
-void	rev_rotate(t_stack *s)
+void	rev_rotate(t_stack *s, t_counter *count, char c)
 {
 	int	tmp;
 	int	i;
@@ -74,4 +96,9 @@ void	rev_rotate(t_stack *s)
 		i--;
 	}
 	s->values[j] = tmp;
+	if (c == 'a')
+		count->rra++;
+	else if (c == 'b')
+		count->rrb++;
+	printf("rr%c\n", c);
 }

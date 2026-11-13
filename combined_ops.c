@@ -6,29 +6,29 @@
 /*   By: vduryee <vduryee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/13 10:33:22 by vduryee           #+#    #+#             */
-/*   Updated: 2026/11/13 12:23:54 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/13 15:59:20 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ops.h"
 
-int dswap(t_stack *a, t_stack *b)
+void dswap(t_stack *a, t_stack *b, t_counter *count)
 {
-	swap(a);
-	swap(b);
-	return (1);
+	swap(a, count, 'a');
+	swap(b, count, 'b');
+	count->ss++;
 }
 
-int drotate(t_stack *a, t_stack *b)
+void drotate(t_stack *a, t_stack *b, t_counter *count)
 {
-	rotate(a);
-	rotate(b);
-	return (1);
+	rotate(a, count, 'a');
+	rotate(b, count, 'b');
+	count->rr++;
 }
 
-int drev_rotate(t_stack *a, t_stack *b)
+void drev_rotate(t_stack *a, t_stack *b, t_counter *count)
 {
-	rev_rotate(a);
-	rev_rotate(b);
-	return (1);
+	rev_rotate(a, count, 'a');
+	rev_rotate(b, count, 'b');
+	count->rrr++;
 }
