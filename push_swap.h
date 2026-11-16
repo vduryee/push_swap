@@ -6,7 +6,7 @@
 /*   By: vduryee <vduryee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/11 11:55:38 by vduryee           #+#    #+#             */
-/*   Updated: 2026/11/13 14:50:50 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/16 10:27:41 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include "ft_printf.h"
 #include <stddef.h>
+#include <stdlib.h>
 
 typedef	struct s_stack
 {
@@ -30,5 +31,7 @@ typedef	struct s_stack
 /* The capacity of both our stacks (A and B) will always be the same n,
 	since to consider all scenarios, A or B could be filled with n values at some point;
 	this will ensure us that we can always store what we need.*/
+
+void	ft_normalize(t_stack *a);
 
 #endif

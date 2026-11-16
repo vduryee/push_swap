@@ -3,24 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_normalize.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alegaspa <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: vduryee <vduryee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/16 09:58:01 by alegaspa          #+#    #+#             */
-/*   Updated: 2026/11/16 10:14:20 by alegaspa         ###   ########.fr       */
+/*   Updated: 2026/11/16 11:30:11 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <limits.h>
 
-static int	get_max(t_struct *a, size_t a->capacity)
+static int	get_max(t_stack *a)
 {
 	int	i;
 	int	max;
-	static long	save = INT_MAX + 1;
+	static long	save_max = 2147483648;
 
 	i = 0;
-	max = a->values[0];
+	max = -2147483648;
 	while (i < (int)a->capacity)
 	{
 		if (max < a->values[i] && a->values[i] < save_max) 
@@ -31,14 +30,14 @@ static int	get_max(t_struct *a, size_t a->capacity)
 	return (max);
 }
 
-static int	get_min(t_struct *a, size_t a->capacity)
+static int	get_min(t_stack *a)
 {
 	int	i;
 	int	min;
-	static long	save_min = INT_MIN - 1;
+	static long	save_min = -2147483649;
 
-	i = checkpt;
-	min = a->values[0];
+	i = 0;
+	min = 2147483647;
 	while (i < (int)a->capacity)
 	{
 		if (min > a->values[i] && a->values[i] > save_min)
@@ -49,38 +48,39 @@ static int	get_min(t_struct *a, size_t a->capacity)
 	return (min);
 }
 
-static int	*parse(t_struct *a)
+static int	*parse(t_stack *a)
 {
 	int	j;
 	int	*tmp;
 	int	checkpt;
 
 	checkpt = 0;
-	j = a->capacity - checkpt;
-	tmp = malloc(sizeof(int) * a->capacity);
+	j = (a->capacity - 1);
+	tmp = malloc(sizeof(int *) * a->capacity);
 	if (!tmp)
 		return (NULL);
-	while (checkpt < j)
+	while (checkpt <= j)
 	{
-		tmp [checkpt] = get_min(a, a->capacity);
-		tmp [j] = get_max(a, a->capacity);
+		tmp[checkpt] = get_min(a);
+		tmp[j] = get_max(a);
 		checkpt++;
+		j--;
 	}
 	return (tmp);
 }		
 
-void	ft_normalize(t_struct *a)
+void	ft_normalize(t_stack *a)
 {
-	int	i;
-	int	j;
-	int	*tmp;
+	size_t	i;
+	size_t	j;
+	int		*tmp;
 
 	i = 0;
 	tmp = parse(a);
 	while (i < a->capacity)
 	{
 		j = 0;
-		while (j < a->values)
+		while (j < a->capacity)
 		{
 			if (a->values[i] == tmp[j])
 			{

@@ -6,50 +6,41 @@
 /*   By: vduryee <vduryee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/12 15:23:48 by alegaspa          #+#    #+#             */
-/*   Updated: 2026/11/13 15:58:04 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/16 11:28:21 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "push_swap.h"
+#include "push_swap.h"
 #include "ops.h"
 #include <stdio.h>
 #include <stdlib.h>
 
-int main()
+int main(/*int ac, char **av*/)
 {
-	int i = 4;
-	int	*ta = malloc(sizeof(int *) * 5);
-	int	*tb = malloc(sizeof(int *) * 5);
+	int i = 13;
+	int	*ta = malloc(sizeof(int *) * 14);
+	int	*tb = malloc(sizeof(int *) * 14);
 
-	ta[4] = -2;
+	// ta[14] = 1231;
+	ta[13] = 90;
+	ta[12] = -896123;
+	ta[11] = 134561;
+	ta[10] = -6754;
+	ta[9] = 23;
+	ta[8] = 1242;
+	ta[7] = -157;
+	ta[6] = 1000321;
+	ta[5] = -2147483648;
+	ta[4] = 2147483647;
 	ta[3] = 907812;
 	ta[2] = -4421;
 	ta[1] = 3231;
 	ta[0] = 6666666;
-	t_stack a = {ta, 5, 5};
-	t_stack b = {tb, 0, 5};
+	t_stack a = {ta, 10, 14};
+	t_stack b = {tb, 0, 14};
 	t_counter count = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
-	// rotate(&a);
-	// push(&a, &b);
-	// rev_rotate(&a);
-	// push(&a, &b);
-	// rev_rotate(&a);
-	// push(&a, &b);
-	push(&a, &b, &count, 'a');
-	// push(&a, &b);
-	// drev_rotate(&a, &b);
-	// rev_rotate(&a);
-	swap(&a, &count, 'a');
-	swap(&a, &count, 'a');
-	swap(&a, &count, 'a');
-	swap(&a, &count, 'a');
-	swap(&a, &count, 'a');
-	rotate(&a, &count, 'a');
-	rotate(&a, &count, 'a');
-	rotate(&a, &count, 'a');
-	rotate(&a, &count, 'a');
-	drotate(&a, &b, &count);
+	ft_normalize(&a);
 	printf("-----------------------\n");
 	while (i > -1)
 	{
