@@ -6,7 +6,7 @@
 /*   By: vduryee <vduryee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/12 15:23:48 by alegaspa          #+#    #+#             */
-/*   Updated: 2026/11/16 11:28:21 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/16 17:22:56 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,33 +15,85 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(/*int ac, char **av*/)
+int	ft_atoi(const char *nptr)
 {
-	int i = 13;
-	int	*ta = malloc(sizeof(int *) * 14);
-	int	*tb = malloc(sizeof(int *) * 14);
+	int	conv_int;
+	int	i;
+	int	sign;
 
-	// ta[14] = 1231;
-	ta[13] = 90;
-	ta[12] = -896123;
-	ta[11] = 134561;
-	ta[10] = -6754;
-	ta[9] = 23;
-	ta[8] = 1242;
-	ta[7] = -157;
-	ta[6] = 1000321;
-	ta[5] = -2147483648;
-	ta[4] = 2147483647;
-	ta[3] = 907812;
-	ta[2] = -4421;
-	ta[1] = 3231;
-	ta[0] = 6666666;
-	t_stack a = {ta, 10, 14};
-	t_stack b = {tb, 0, 14};
-	t_counter count = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+	i = 0;
+	conv_int = 0;
+	sign = 1;
+	while (nptr[i] == 32 || (nptr[i] >= 9 && nptr[i] <= 13))
+		i++;
+	if (nptr[i] == '+' || nptr[i] == '-')
+	{
+		if (nptr[i] == '-')
+			sign *= -1;
+		i++;
+	}
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		conv_int = conv_int * 10 + (nptr[i] - '0');
+		i++;
+	}
+	return (conv_int * sign);
+}
 
+int ft_algo_selector(char *str)
+{
+	if (str == "--simple")
+		//call simple algo
+	else if (str == "--medium")
+		//call medium algo
+	else if (str == "--complex")
+		//call complex algo
+	else if (str == "--adaptive")
+		//call adaptive algo
+	else
+	{
+		// do adaptive
+		return (1);
+	}
+	return (0);
+}
+
+int	ft_initialize(int ac, char **av)
+{
+	int i;
+	int	k;
+	int	*ta;
+	int	*tb;
+
+	if (ac >= 2)
+	{
+		if (ft_algo_selector(av[1]))
+		{
+			i = ac - 2;
+			k = 2;
+		}
+		else
+		{
+			i = ac - 1;
+			k = 1;
+		}
+		ta = malloc(sizeof(int *) * i + 1);
+		tb = malloc(sizeof(int *) * i + 1);
+		while (i > -1)
+			ta[i--] = ft_atoi(av[k++]);
+		t_stack a = {ta, ac - 1, ac - 1};
+		t_stack b = {tb, 0, ac - 1};
+		t_counter count = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+	}
+	return (-1);
+}
+
+int main(int ac, char **av)
+{
+	ft_initialize(ac, av);
 	ft_normalize(&a);
 	printf("-----------------------\n");
+	i = ac - 2;
 	while (i > -1)
 	{
 		printf("%d", a.values[i]);
@@ -49,7 +101,6 @@ int main(/*int ac, char **av*/)
 		i--;
 	}
 	printf("-----------------------\n");
-	printf("sa: %d, sb: %d, pa: %d, pb: %d, ra: %d, rb: %d, rra: %d, rrb: %d, \nss: %d, rr: %d, rrr: %d", 
-			count.sa, count.sb, count.pa, count.pb, count.ra, count.rb, count.rra, count.rrb, count.ss, count.rr, count.rrr);
+	printf("sa: %d, sb: %d, pa: %d, pb: %d, ra: %d, rb: %d, rra: %d, rrb: %d, \nss: %d, rr: %d, rrr: %d", count.sa, count.sb, count.pa, count.pb, count.ra, count.rb, count.rra, count.rrb, count.ss, count.rr, count.rrr);
 	return 42;
 }
