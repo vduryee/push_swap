@@ -6,7 +6,7 @@
 /*   By: vduryee <vduryee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/12 10:42:44 by alegaspa          #+#    #+#             */
-/*   Updated: 2026/11/13 15:53:46 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/17 10:40:58 by alegaspa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	push(t_stack *from, t_stack *to, t_counter *count, char c)
 
 }
 
-void	rotate(t_stack *s, t_counter *count, char c)
+void	rev_rotate(t_stack *s, t_counter *count, char c)
 {
 	int	tmp;
 	size_t	i;
@@ -72,14 +72,14 @@ void	rotate(t_stack *s, t_counter *count, char c)
 	}
 	s->values[i] = tmp;
 	if (c == 'a')
-		count->ra++;
+		count->rra++;
 	else if (c == 'b')
-		count->rb++;
-	printf("r%c\n", c);
+		count->rrb++;
+	printf("rr%c\n", c);
 
 }
 
-void	rev_rotate(t_stack *s, t_counter *count, char c)
+void	rotate(t_stack *s, t_counter *count, char c)
 {
 	int	tmp;
 	int	i;
@@ -97,8 +97,8 @@ void	rev_rotate(t_stack *s, t_counter *count, char c)
 	}
 	s->values[j] = tmp;
 	if (c == 'a')
-		count->rra++;
+		count->ra++;
 	else if (c == 'b')
-		count->rrb++;
-	printf("rr%c\n", c);
+		count->rb++;
+	printf("r%c\n", c);
 }
