@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   butterfly_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alegaspa <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/13 14:55:04 by alegaspa          #+#    #+#             */
-/*   Updated: 2026/11/17 18:03:57 by alegaspa         ###   ########.fr       */
+/*   Updated: 2026/11/17 22:11:57 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "structs.h"
 #include "ops.h"
 
 static int	ft_sqrt(int nb)

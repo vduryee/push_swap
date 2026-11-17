@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ops.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vduryee <vduryee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/12 10:42:44 by alegaspa          #+#    #+#             */
-/*   Updated: 2026/11/17 10:40:58 by alegaspa         ###   ########.fr       */
+/*   Updated: 2026/11/17 22:11:49 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "structs.h"
 #include "ops.h"
 
 //remove this comment only when deleting stdio

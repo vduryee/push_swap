@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_normalize.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vduryee <vduryee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/16 09:58:01 by alegaspa          #+#    #+#             */
-/*   Updated: 2026/11/16 11:30:11 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/17 22:11:55 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "structs.h"
 
 static int	get_max(t_stack *a)
 {

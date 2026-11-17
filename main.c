@@ -3,60 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vduryee <vduryee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/12 15:23:48 by alegaspa          #+#    #+#             */
-/*   Updated: 2026/11/17 18:28:41 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/17 23:22:09 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "structs.h"
 #include "ops.h"
+#include "helpers.h"
 #include <stdio.h>
-#include <stdlib.h>
 
-int	ft_atoi(const char *nptr)
-{
-	int	conv_int;
-	int	i;
-	int	sign;
-
-	i = 0;
-	conv_int = 0;
-	sign = 1;
-	while (nptr[i] == 32 || (nptr[i] >= 9 && nptr[i] <= 13))
-		i++;
-	if (nptr[i] == '+' || nptr[i] == '-')
-	{
-		if (nptr[i] == '-')
-			sign *= -1;
-		i++;
-	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-	{
-		conv_int = conv_int * 10 + (nptr[i] - '0');
-		i++;
-	}
-	return (conv_int * sign);
-}
-
-int ft_algo_selector(char *str)
-{
-	if (str == "--simple")
-		//call simple algo
-	else if (str == "--medium")
-		//call medium algo
-	else if (str == "--complex")
-		//call complex algo
-	else if (str == "--adaptive")
-		//call adaptive algo
-	else
-	{
-		// do adaptive
-		return (1);
-	}
-	return (0);
-}
 double	compute_disorder(t_stack *a)
 {
 	int	mistakes;
@@ -89,36 +47,6 @@ void	bench(t_stack a, t_counter count, char **av)
 			count.sa, count.sb, count.ss, count.pa, count.pb);
 	printf("[bench] ra: %d, rb: %d, rr: %d, rra: %d, rrb: %d, rrr: %d\n",
 			count.ra, count.rb, count.rr, count.rra, count.rrb, count.rrr);
-}
-
-int	ft_initialize(int ac, char **av)
-{
-	int i;
-	int	k;
-	int	*ta;
-	int	*tb;
-
-	if (ac >= 2)
-	{
-		if (ft_algo_selector(av[1]))
-		{
-			i = ac - 2;
-			k = 2;
-		}
-		else
-		{
-			i = ac - 1;
-			k = 1;
-		}
-		ta = malloc(sizeof(int *) * i + 1);
-		tb = malloc(sizeof(int *) * i + 1);
-		while (i > -1)
-			ta[i--] = ft_atoi(av[k++]);
-		t_stack a = {ta, ac - 1, ac - 1};
-		t_stack b = {tb, 0, ac - 1};
-		t_counter count = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-	}
-	return (-1);
 }
 
 int main(int ac, char **av)
