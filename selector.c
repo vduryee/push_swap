@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo_selector.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
+/*   By: vduryee <vduryee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 22:16:25 by vduryee           #+#    #+#             */
-/*   Updated: 2026/11/17 22:22:39 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/18 11:00:39 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,11 @@ int algo_selector(char *arg)
     if(!ft_strcmp(arg, "--adaptive"))
         return (0);
     return (-1);
+}
+
+int bench_check(char *arg)
+{
+	if(!ft_strcmp(arg, "--bench"))
+		return (1);
+	return (0);
 }

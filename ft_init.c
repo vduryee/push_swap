@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
+/*   By: vduryee <vduryee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 22:15:39 by vduryee           #+#    #+#             */
-/*   Updated: 2026/11/18 00:25:05 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/18 11:17:09 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,30 +18,30 @@
     la nouvelle valeur dans voodoo (tkt c'est magique)
     return 0 si l'input est invalide, ou si > int | < int
 */
-static int	conv_int(const char *s, int *voodoo)
+static	int	conv_int(const char *s, int *voodoo)
 {
-    long    n;
-    int	    sign;
+	long	n;
+	int		sign;
 
 	sign = 1;
 	n = 0;
 	if (*s == '+' || *s == '-')
-    {
+	{
 		if (*s++ == '-')
 			sign *= -1;
-    }
-    if (*s < '0' || *s > '9')
-        return (0);
+	}
+	if (*s < '0' || *s > '9')
+		return (0);
 	while (*s >= '0' && *s <= '9')
 	{
 		n = n * 10 + (*s - '0');
 		s++;
-        if (n * sign > INT_MAX || n * sign < INT_MIN)
-            return (0);
+		if (n * sign > INT_MAX || n * sign < INT_MIN)
+			return (0);
 	}
-    if (*s)
-        return (0);
-    *voodoo = (int)(n * sign);
+	if (*s)
+		return (0);
+	*voodoo = (int)(n * sign);
 	return (1);
 }
 /*
@@ -60,42 +60,45 @@ static int	conv_int(const char *s, int *voodoo)
 
     On set la size a la fin, elle reste a 0 s'il y a une erreur.
 */
-static int  fill_stack(t_stack *a, size_t n, char **args)
+
+static	int	fill_stack(t_stack *a, size_t n, char **args)
 {
-    size_t  i;
-    size_t  j;
-    int     voodoo;
-    
-    i = 0;
-    while (n > i)
-    {
-        if(!conv_int(args[i], &voodoo))
-            return (0);
-        j = 0;
-        while (i > j)
-        {
-            if (a->values[n - 1 - j] == voodoo)
-                return (0);
-            j++;
-        }
-        a->values[n - 1 - i] = voodoo;
-        i++;
-    }
-    a->size = n;
-    return (1);
+	size_t	i;
+	size_t	j;
+	int		voodoo;
+
+	i = 0;
+	while (n > i)
+	{
+		if (!conv_int(args[i], &voodoo))
+			return (0);
+		j = 0;
+		while (i > j)
+		{
+			if (a->values[n - 1 - j] == voodoo)
+				return (0);
+			j++;
+		}
+		a->values[n - 1 - i] = voodoo;
+		i++;
+	}
+	a->size = n;
+	return (1);
 }
+
 /*
     stack_init: ca init la stack pas grand chose a dire la dessus
 */
-static int  stack_init(t_stack *s, size_t n)
+static	int	stack_init(t_stack *s, size_t n)
 {
-    s->values = malloc(sizeof(int) * (n + 1));
-    if (s->values == NULL)
-        return (0);
-    s->size = 0;
-    s->capacity = n;
-    return (1);
+	s->values = malloc(sizeof(int) * (n + 1));
+	if (s->values == NULL)
+		return (0);
+	s->size = 0;
+	s->capacity = n;
+	return (1);
 }
+
 /*
     ft_init: le chad qui init tout, apparition sauvage d'une stack
     qui carry des stacks (elle est ou la corde svp?)
@@ -115,20 +118,31 @@ static int  stack_init(t_stack *s, size_t n)
     Ca alloue les deux stack avec ac - fst (le nombre d'args convertis
     en int), rempli la stack a.
 */
-int ft_init(t_data *d, int ac, char **av)
+int	ft_init(t_data *d, int ac, char **av)
 {
-    int fst;
+	int	fst;
 
-    fst = 1;
-    d->a.values = NULL;
-    d->b.values = NULL;
-    d->count = (t_counter){0};
-    d->algo = algo_selector(av[1]);
-    if (d->algo != -1)
-        fst = 2;
-    else
-        d->algo = 0;
-    if(!stack_init(&d->a, ac - fst) || !stack_init(&d->b, ac - fst))
-        return (0);
-    return (fill_stack(&d->a, ac - fst, av + fst));
+	fst = 1;
+	d->a.values = NULL;
+	d->b.values = NULL;
+	d->count = (t_counter){0};
+	d->algo = algo_selector(av[1]);
+	d->bench = bench_check(av[2]);
+	if (d->algo != -1)
+	{
+		if (d->bench != 0)
+			fst = 3;
+		fst = 2;
+	}
+	else
+	{
+		d->algo = 0;
+		if(bench_check(av[1]))
+			d->bench = 1;
+		else
+			d->bench = 0;
+	}
+	if (!stack_init(&d->a, ac - fst) || !stack_init(&d->b, ac - fst))
+		return (0);
+	return (fill_stack(&d->a, ac - fst, av + fst));
 }
