@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vduryee <vduryee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/12 15:23:48 by alegaspa          #+#    #+#             */
-/*   Updated: 2026/11/18 14:21:58 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/18 17:08:11 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,13 @@ static char *bench_algo(t_data d)
 	char	*str;
 
 	if (d.algo == 1)
-		str = "--simple";
+		str = "Simple / O(n²)";
 	else if (d.algo == 2)
-		str = "--medium";
+		str = "Medium / O(n\u221An)";
 	else if (d.algo == 3)
-		str = "--complex";
+		str = "Complex / O(n log n)";
 	else
-		str = "--adaptive";
+		str = "Adaptive / O(n\u221An)";
 	return (str);
 }
 
@@ -71,9 +71,9 @@ static void	print_bench(t_data d)
 	char	*str;
 
 	str = bench_algo(d);
-	// printf("[bench] disorder :\n", /*compute_disorder(&a)*/);
-	printf("[bench] strategy : %s\n", str);
-	// printf("[bench] total_ops :\n", /*count_ops(&count)*/);
+	// printf("[bench] disorder:\n", /*compute_disorder(&a)*/);
+	printf("[bench] strategy: %s\n", str);
+	// printf("[bench] total_ops:\n", /*count_ops(&count)*/);
 	printf("[bench] sa: %d, sb: %d, ss: %d, pa: %d, pb: %d\n", 
 			d.count.sa, d.count.sb, d.count.ss, d.count.pa, d.count.pb);
 	printf("[bench] ra: %d, rb: %d, rr: %d, rra: %d, rrb: %d, rrr: %d\n",
