@@ -6,7 +6,7 @@
 /*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/13 14:55:04 by alegaspa          #+#    #+#             */
-/*   Updated: 2026/11/18 11:58:40 by alegaspa         ###   ########.fr       */
+/*   Updated: 2026/11/18 17:23:52 by alegaspa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,31 @@ void	butterfly_push_a(t_stack *a, t_stack *b, t_counter *count)
 	static int	i = b->size;
 	int	range;
 	int	mid;
+	int	j;
 
 	range = 10;
-	mid = (box * range) - (range /2);
-	while (i > ((box - 1) * range) && a->size != 0)
+	mid = (box * range) - (range / 2);
+	j = 0;
+	if (i > (box - 1) * range && i < mid)
 	{
-
+		while (j < mid)
+		{
+			rev_rotate(b, count, 'b');
+			if (b->values[b->size - 1] == i - 1)
+			{
+				push(b, a, count, 'a');
+				i--;
+			}
+			j++;
+		}
+	}
+	while (i > (box - 1) * range)
+	{
+		if (b->size - 2 == i - 1)
+			swap(b, count, 'b');
+		else  
+			rotate(b, count, 'b');
+		if (
 
 void	butterfly_sort(t_stack *a, t_stack *b, t_counter *count)
 {
