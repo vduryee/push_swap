@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
+/*   By: vduryee <vduryee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/11 11:55:38 by vduryee           #+#    #+#             */
-/*   Updated: 2026/11/17 23:22:52 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/18 10:59:00 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef	struct	s_data
 	t_stack		b;
 	t_counter	count;
 	int			algo;
+	int			bench;
 }	t_data;
 
 // values is a pointer to the 1st element (bottom) of the stack which is an array of ints.

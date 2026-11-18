@@ -6,7 +6,7 @@
 /*   By: vduryee <vduryee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 22:15:39 by vduryee           #+#    #+#             */
-/*   Updated: 2026/11/18 11:17:09 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/18 16:30:45 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,14 +118,12 @@ static	int	stack_init(t_stack *s, size_t n)
     Ca alloue les deux stack avec ac - fst (le nombre d'args convertis
     en int), rempli la stack a.
 */
-int	ft_init(t_data *d, int ac, char **av)
+
+int	check_flags(t_data *d, char **av)
 {
 	int	fst;
 
 	fst = 1;
-	d->a.values = NULL;
-	d->b.values = NULL;
-	d->count = (t_counter){0};
 	d->algo = algo_selector(av[1]);
 	d->bench = bench_check(av[2]);
 	if (d->algo != -1)
@@ -137,11 +135,24 @@ int	ft_init(t_data *d, int ac, char **av)
 	else
 	{
 		d->algo = 0;
+		d->bench = 0;
 		if(bench_check(av[1]))
+		{
 			d->bench = 1;
-		else
-			d->bench = 0;
+			fst = 2;
+		}
 	}
+	return (fst);
+}
+
+int	ft_init(t_data *d, int ac, char **av)
+{
+	int	fst;
+
+	fst = check_flags(d, av);
+	d->a.values = NULL;
+	d->b.values = NULL;
+	d->count = (t_counter){0};
 	if (!stack_init(&d->a, ac - fst) || !stack_init(&d->b, ac - fst))
 		return (0);
 	return (fill_stack(&d->a, ac - fst, av + fst));
