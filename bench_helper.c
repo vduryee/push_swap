@@ -6,12 +6,12 @@
 /*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/19 11:32:47 by vduryee           #+#    #+#             */
-/*   Updated: 2026/11/19 12:30:09 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/19 16:23:04 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
 #include "structs.h"
+#include "helpers.h"
 
 double	compute_disorder(t_stack *a)
 {

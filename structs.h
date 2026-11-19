@@ -6,13 +6,14 @@
 /*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/11 11:55:38 by vduryee           #+#    #+#             */
-/*   Updated: 2026/11/19 11:25:03 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/19 13:58:00 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
 
+#include "libft/libft.h"
 #include "ft_printf.h"
 #include <stddef.h>
 #include <stdlib.h>
