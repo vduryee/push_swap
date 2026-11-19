@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   helpers.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vduryee <vduryee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 22:25:16 by vduryee           #+#    #+#             */
-/*   Updated: 2026/11/18 16:34:30 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/19 11:36:59 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,6 @@ int     ft_strcmp (const char *s1, const char *s2);
 int     algo_selector(char *arg);
 int 	bench_check(char *arg);
 int		ft_init(t_data *d, int ac, char **av);
+void	print_disorder(double disorder);
 
 #endif

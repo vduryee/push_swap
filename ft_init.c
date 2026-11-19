@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vduryee <vduryee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 22:15:39 by vduryee           #+#    #+#             */
-/*   Updated: 2026/11/18 16:30:45 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/19 10:17:45 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,8 @@ int	check_flags(t_data *d, char **av)
 	{
 		if (d->bench != 0)
 			fst = 3;
-		fst = 2;
+		else
+			fst = 2;
 	}
 	else
 	{
