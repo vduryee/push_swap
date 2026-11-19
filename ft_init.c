@@ -6,7 +6,7 @@
 /*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 22:15:39 by vduryee           #+#    #+#             */
-/*   Updated: 2026/11/19 16:01:40 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/19 16:28:51 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,9 @@ int	ft_init(t_data *d, int ac, char **av)
 	char **tab;
 
 	fst = check_flags(d, av);
+	d->a.values = NULL;
+	d->b.values = NULL;
+	d->count = (t_counter){0};
 	words = ac - fst;
 	if (words == 1 && has_whitespace(av[fst]))
 	{
@@ -122,9 +125,6 @@ int	ft_init(t_data *d, int ac, char **av)
 		free_tab(tab);
 		return (init);
 	}
-	d->a.values = NULL;
-	d->b.values = NULL;
-	d->count = (t_counter){0};
 	if (!stack_init(&d->a, words) || !stack_init(&d->b, words))
 		return (0);
 	return (fill_stack(&d->a, words, av + fst));

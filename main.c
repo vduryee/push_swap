@@ -6,7 +6,7 @@
 /*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/12 15:23:48 by alegaspa          #+#    #+#             */
-/*   Updated: 2026/11/19 12:32:11 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/19 16:25:53 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int main(int ac, char **av)
 	t_data 	d;
 	int	i = 0;
 
-	if (ac <= 2)
+	if (ac <= 1)
 	{
 		write (2, "Error\n", 6);
 		return (0);
