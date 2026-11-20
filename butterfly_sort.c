@@ -6,7 +6,7 @@
 /*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/13 14:55:04 by alegaspa          #+#    #+#             */
-/*   Updated: 2026/11/18 17:23:52 by alegaspa         ###   ########.fr       */
+/*   Updated: 2026/11/20 14:16:33 by alegaspa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,45 +44,62 @@ void	butterfly_push_b(t_stack *a, t_stack *b, t_counter *count, int box)
 	}
 }
 
-void	butterfly_push_a(t_stack *a, t_stack *b, t_counter *count)
+void	butterfly_push_a(t_stack *a, t_stack *b, t_counter *count, int box)
 {
-	static int	i = b->size;
+	int	i;
 	int	range;
-	int	mid;
-	int	j;
-
+	int	p;
+	int	max;
+	
+	p = 0;
+	max = 0;
 	range = 10;
-	mid = (box * range) - (range / 2);
-	j = 0;
-	if (i > (box - 1) * range && i < mid)
-	{
-		while (j < mid)
-		{
-			rev_rotate(b, count, 'b');
-			if (b->values[b->size - 1] == i - 1)
-			{
-				push(b, a, count, 'a');
-				i--;
-			}
-			j++;
-		}
-	}
+	i = b->size;
 	while (i > (box - 1) * range)
 	{
-		if (b->size - 2 == i - 1)
+		if (b->values[b->size - 1] == i - 1)
+		{
+			push(b, a, count, 'a');
+			i--;
+			if (p == 1)
+			{
+				i--;
+				p = 0;
+				swap(a, count, 'a');
+			}
+		}
+		else if (b->values[b->size - 1] == i - 2 && p == 0)
+		{
+			push(b, a, count, 'a');
+			p = 1;
+		}
+		else if (b->values[b->size - 2] == i - 1)
 			swap(b, count, 'b');
-		else  
+		else if (b->size > 5 && (b->values[b->size - 3] == i - 1 || b->values[b->size - 4] == i - 1 || b->values[b->size - 5] == i - 1))
 			rotate(b, count, 'b');
-		if (
+		else if (b->size > 0)
+			rev_rotate(b, count, 'b');
+	//	ft_printf("%d\n\n", b->size);
+		ft_printf("%d\n\n", b->values[b->size - 1]);
+		ft_printf("%d\n\n", p);
+	//	ft_printf("%d\n\n", i);
+		
+	}
+}
 
 void	butterfly_sort(t_stack *a, t_stack *b, t_counter *count)
 {
 	int	i;
 
 	i = 0;
-	while (i < 10)
+	while (i < 51)
 	{
 		butterfly_push_b(a, b, count, i);
 		i++;
+	}
+	while (i > 0)
+	{
+		butterfly_push_a(a, b, count, i);
+		i--;
 	}
 }
