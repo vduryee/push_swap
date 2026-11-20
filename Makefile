@@ -1,25 +1,57 @@
-NAME		= libftprintf.a
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: alegaspa <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2026/11/20 15:00:07 by alegaspa          #+#    #+#              #
+#    Updated: 2026/11/20 16:53:13 by alegaspa         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-CC			= cc
-CFLAGS		= -Wall -Wextra -Werror
-AR			= ar rcs
+NAME	:= push_swap
 
-SRCS		= ft_printf.c ft_printf_utils.c
-OBJS		= $(SRCS:.c=.o)
+CC	:= cc
+CFLAGS	:= -Wall -Wextra -Werror -g -MP -MMD -I$(LIBFT_DIR)
+
+SRCS	:= bench_helper.c\
+	   butterfly_sort.c\
+	   combined_ops.c\
+	   ft_init.c\
+	   ft_init_utils.c\
+	   ft_normalize.c\
+	   ft_printf.c\
+	   ft_printf_utils.c\
+	   main.c\
+	   ops.c\
+	   selector.c
+
+OBJS	= $(SRCS:.c=.o)
+DEPFILE = $(OBJS:.o=.d)
+
+LIBFT_DIR = libft/
+LIBFT	= $(LIBFT_DIR)libft.a
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(AR) $(NAME) $(OBJS)
+$(NAME): $(OBJS) $(DEPFILE) $(LIBFT)
+	 $(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+$(LIBFT):
+	@$(MAKE) -C $(LIBFT_DIR)
 
-%.o: %.c ft_printf.h
-	$(CC) $(CFLAGS) -c $< -o $@
+%.o: %.c algo_sort.h\
+	ft_printf.h\
+	helpers.h\
+	ops.h\
+	structs.h
+	@$(CC) $(CFLAGS) $(LIBFT) -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJS) $(DEPFILE)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) 
 
 re: fclean all
 
