@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vduryee <vduryee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/27 00:25:52 by vduryee           #+#    #+#             */
-/*   Updated: 2026/10/27 06:02:52 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/20 17:19:42 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,9 @@ char	*ft_itoa(int n)
 	return (res);
 }
 
-#include <stdio.h>
-int main ()
-{
-	long nb = 2147483649;
-	printf("%s", ft_itoa(nb));
-}
+// #include <stdio.h>
+// int main ()
+// {
+// 	long nb = 2147483649;
+// 	printf("%s", ft_itoa(nb));
+// }
