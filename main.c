@@ -6,7 +6,7 @@
 /*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/12 15:23:48 by alegaspa          #+#    #+#             */
-/*   Updated: 2026/11/23 11:30:07 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/23 15:13:16 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 
 static void handle_algo (t_data *d)
 {
-	// if (d.algo == 1)
-	// 	insert_sort(&d);
-	/*else*/ if (d->algo == 2)
+	if (d->algo == 1)
+		insert_sort(d);
+	else if (d->algo == 2)
 		butterfly_sort(&d->a, &d->b, &d->count);
 	// else if (d.algo == 3)
 	// 	radix_sort(&d);

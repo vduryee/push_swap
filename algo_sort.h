@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo_sort.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vduryee <vduryee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/18 13:53:03 by vduryee           #+#    #+#             */
-/*   Updated: 2026/11/18 13:58:45 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/23 14:11:52 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define ALGO_SORT_H
 
 #include "structs.h"
-#include "ops.h"
 
+void	insert_sort(t_data *d);
 void	butterfly_sort(t_stack *a, t_stack *b, t_counter *count);
 
 #endif

@@ -6,20 +6,16 @@
 /*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/12 10:42:44 by alegaspa          #+#    #+#             */
-/*   Updated: 2026/11/17 22:11:49 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/23 12:16:09 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "structs.h"
 #include "ops.h"
 
-//remove this comment only when deleting stdio
-#include <stdio.h>
-
 void	swap(t_stack *s, t_counter *count, char c)
 {
 	int	tmp;
-
 
 	if (s->size > 1)
 	{
@@ -31,7 +27,7 @@ void	swap(t_stack *s, t_counter *count, char c)
 		count->sa++;
 	else if (c == 'b')
 		count->sb++;
-	printf("s%c\n", c);
+	ft_printf("s%c\n", c);
 }
 
 void	push(t_stack *from, t_stack *to, t_counter *count, char c)
@@ -49,15 +45,15 @@ void	push(t_stack *from, t_stack *to, t_counter *count, char c)
 		count->pa++;
 	else if (c == 'b')
 		count->pb++;
-	printf("p%c\n", c);
+	ft_printf("p%c\n", c);
 
 }
 
 void	rev_rotate(t_stack *s, t_counter *count, char c)
 {
-	int	tmp;
+	int		tmp;
 	size_t	i;
-	int	j;
+	int		j;
 
 	if(!s)
 		return ;
@@ -75,7 +71,7 @@ void	rev_rotate(t_stack *s, t_counter *count, char c)
 		count->rra++;
 	else if (c == 'b')
 		count->rrb++;
-	printf("rr%c\n", c);
+	ft_printf("rr%c\n", c);
 
 }
 
@@ -100,5 +96,5 @@ void	rotate(t_stack *s, t_counter *count, char c)
 		count->ra++;
 	else if (c == 'b')
 		count->rb++;
-	printf("r%c\n", c);
+	ft_printf("r%c\n", c);
 }

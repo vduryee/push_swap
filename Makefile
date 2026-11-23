@@ -6,14 +6,14 @@
 #    By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/11/20 17:44:17 by alegaspa          #+#    #+#              #
-#    Updated: 2026/11/23 11:13:56 by vduryee          ###   ########.fr        #
+#    Updated: 2026/11/23 14:21:53 by vduryee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= push_swap
 
 CC		= cc
-CFLAGS		= -Wall -Wextra -Werror -MP -MMD -I$(LIBFT_DIR)
+CFLAGS		= -Wall -Wextra -Werror -g -MP -MMD -I$(LIBFT_DIR)
 
 LIBFT_DIR	= libft
 LIBFT		= $(LIBFT_DIR)/libft.a
@@ -26,6 +26,7 @@ SRCS		= main.c\
 		  ops.c\
 		  combined_ops.c\
 		  butterfly_sort.c\
+		  insert_sort.c\
 		  bench_helper.c\
 		  ft_printf.c\
 		  ft_printf_utils.c
