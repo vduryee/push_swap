@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: alegaspa <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/11/20 17:44:17 by alegaspa          #+#    #+#              #
-#    Updated: 2026/11/23 09:18:52 by alegaspa         ###   ########.fr        #
+#    Updated: 2026/11/23 11:13:56 by vduryee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,10 +23,10 @@ SRCS		= main.c\
 		  ft_init_utils.c\
 		  ft_normalize.c\
 		  selector.c\
-		  bench_helper.c\
 		  ops.c\
 		  combined_ops.c\
 		  butterfly_sort.c\
+		  bench_helper.c\
 		  ft_printf.c\
 		  ft_printf_utils.c
 

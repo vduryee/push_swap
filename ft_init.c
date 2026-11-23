@@ -6,7 +6,7 @@
 /*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 22:15:39 by vduryee           #+#    #+#             */
-/*   Updated: 2026/11/19 16:28:51 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/23 11:20:49 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,33 +75,6 @@ static int	stack_init(t_stack *s, size_t n)
 	return (1);
 }
 
-static int	check_flags(t_data *d, char **av)
-{
-	int	fst;
-
-	fst = 1;
-	d->algo = algo_selector(av[1]);
-	d->bench = bench_check(av[2]);
-	if (d->algo != -1)
-	{
-		if (d->bench != 0)
-			fst = 3;
-		else
-			fst = 2;
-	}
-	else
-	{
-		d->algo = 0;
-		d->bench = 0;
-		if(bench_check(av[1]))
-		{
-			d->bench = 1;
-			fst = 2;
-		}
-	}
-	return (fst);
-}
-
 int	ft_init(t_data *d, int ac, char **av)
 {
 	int	fst;
@@ -109,7 +82,7 @@ int	ft_init(t_data *d, int ac, char **av)
 	int init;
 	char **tab;
 
-	fst = check_flags(d, av);
+	fst = bench_first_flag(d, av);
 	d->a.values = NULL;
 	d->b.values = NULL;
 	d->count = (t_counter){0};
