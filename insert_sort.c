@@ -6,7 +6,7 @@
 /*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/20 18:00:33 by vduryee           #+#    #+#             */
-/*   Updated: 2026/11/23 15:29:29 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/23 17:05:26 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	insert_push_b(t_data *d)
 	{
 		if(min == d->a.values[d->a.size - 1])
 		{
-			push(&d->a, &d->b, &d->count, 'a');
+			push(&d->a, &d->b, &d->count, 'b');
 			min++;
 		}
 		else
@@ -34,13 +34,11 @@ void	insert_push_b(t_data *d)
 void	insert_push_a(t_data *d)
 {
 	while (d->b.size != 0)
-		push(&d->b, &d->a, &d->count, 'b');
+		push(&d->b, &d->a, &d->count, 'a');
 }
 
 void	insert_sort(t_data *d)
 {
-	while (d->a.size != 0)
 		insert_push_b(d);
-	while (d->b.size != 0)
 		insert_push_a(d);
 }
