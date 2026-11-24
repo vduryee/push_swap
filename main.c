@@ -6,7 +6,7 @@
 /*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/12 15:23:48 by alegaspa          #+#    #+#             */
-/*   Updated: 2026/11/23 15:13:16 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/24 18:40:07 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void handle_algo (t_data *d)
 int main(int ac, char **av)
 {
 	t_data 	d;
-	int	i = 0;
+	// int	i = 0;
 
 	if (ac <= 1)
 	{
@@ -46,15 +46,17 @@ int main(int ac, char **av)
 		d.disorder = compute_disorder(&d.a);
 		handle_algo(&d);
 		//for debug purposes
-		i = ac - 4;
-		ft_printf("\n----------------------\n\n");
-		while (i > -1)
-		{
-			ft_printf("%d\t", d.a.values[i]);
-			ft_printf("%d\n", d.b.values[i]);
-			i--;
-		}
+		// i = ac - 4;
+		// ft_printf("\n----------------------\n\n");
+		// while (i > -1)
+		// {
+		// 	ft_printf("%d\t", d.a.values[i]);
+		// 	ft_printf("%d\n", d.b.values[i]);
+		// 	i--;
+		// }
 		//remove until next comment above before push
+		if (d.a.flag)
+			return (ft_printf(0, "total_ops: %d\n", count_ops(d.count)));
 		if (d.bench)
 			print_bench(d);
 	}

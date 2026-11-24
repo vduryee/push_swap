@@ -6,7 +6,7 @@
 /*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/19 14:47:16 by vduryee           #+#    #+#             */
-/*   Updated: 2026/11/23 10:56:20 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/24 18:35:56 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ int	bench_first_flag(t_data *d, char **av)
 	fst = 1;
 	d->algo = algo_selector(av[2]);
 	d->bench = bench_check(av[1]);
+	d->a.flag = 0;
 	if (d->bench != 0)
 	{
 		if (d->algo != -1)
@@ -90,6 +91,45 @@ int	bench_first_flag(t_data *d, char **av)
 	}
 	else
 	{
+		d->a.flag = 0;
+		d->algo = 0;
+		d->bench = 0;
+		if(algo_selector(av[1]))
+		{
+			d->algo = algo_selector(av[1]);
+			fst = 2;
+		}
+	}
+	return (fst);
+}
+int	live_flag(t_data *d, char **av)
+{
+	int	fst;
+
+	fst = 1;
+	d->a.flag = live_check(av[3]);
+	d->algo = algo_selector(av[2]);
+	d->bench = bench_check(av[1]);
+	if (d->bench != 0)
+	{
+		if (d->a.flag != 0)
+		{
+			if (d->algo != -1)
+				fst = 4;
+			else
+				fst = 3;
+		}
+		else
+		{
+			if (d->algo != -1)
+				fst = 3;
+			else
+				fst = 2;
+		}
+	}
+	else
+	{
+		d->a.flag = 0;
 		d->algo = 0;
 		d->bench = 0;
 		if(algo_selector(av[1]))

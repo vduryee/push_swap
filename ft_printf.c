@@ -6,7 +6,7 @@
 /*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/02 13:49:14 by vduryee           #+#    #+#             */
-/*   Updated: 2026/11/24 13:32:59 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/24 17:22:35 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static int	ft_switch_err(char type, va_list args, int count)
 	return (count);
 }
 
-int	ft_printf(const char *format, ...)
+int	ft_printf(int flag, const char *format, ...)
 {
 	int		i;
 	int		count;
@@ -65,6 +65,8 @@ int	ft_printf(const char *format, ...)
 
 	if (!format)
 		return (-1);
+	else if (flag)
+		return (0);
 	i = 0;
 	count = 0;
 	va_start (args, format);

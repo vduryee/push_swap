@@ -6,7 +6,7 @@
 /*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/11 11:55:38 by vduryee           #+#    #+#             */
-/*   Updated: 2026/11/24 13:33:38 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/24 18:25:48 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef	struct s_stack
 	int		*values;
 	size_t	size;
 	size_t	capacity;
+	int flag;
 }	t_stack;
 
 typedef struct s_counter

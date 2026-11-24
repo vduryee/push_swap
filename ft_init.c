@@ -6,7 +6,7 @@
 /*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 22:15:39 by vduryee           #+#    #+#             */
-/*   Updated: 2026/11/23 12:05:16 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/24 18:30:13 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ static int	stack_init(t_stack *s, size_t n)
 
 static int	flag_checker(t_data *d, char **av)
 {
+	if (live_check(av[3]))
+		return (live_flag(d, av));
 	if (!ft_strcmp(av[1], "--bench"))
 		return (bench_first_flag(d, av));
 	return (algo_first_flag(d, av));

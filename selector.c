@@ -6,7 +6,7 @@
 /*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 22:16:25 by vduryee           #+#    #+#             */
-/*   Updated: 2026/11/19 14:36:04 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/24 17:28:08 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,13 @@ int algo_selector(char *arg)
 int bench_check(char *arg)
 {
 	if(!ft_strcmp(arg, "--bench"))
+		return (1);
+	return (0);
+}
+
+int live_check(char *arg)
+{
+	if(!ft_strcmp(arg, "--live"))
 		return (1);
 	return (0);
 }
