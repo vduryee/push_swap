@@ -6,7 +6,7 @@
 #    By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/11/20 17:44:17 by alegaspa          #+#    #+#              #
-#    Updated: 2026/11/23 14:21:53 by vduryee          ###   ########.fr        #
+#    Updated: 2026/11/24 13:32:22 by vduryee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,13 +29,15 @@ SRCS		= main.c\
 		  insert_sort.c\
 		  bench_helper.c\
 		  ft_printf.c\
+		  ft_printf_err_utils.c\
 		  ft_printf_utils.c
 
 HEAD		= structs.h\
 		  helpers.h\
 		  ops.h\
 		  algo_sort.h\
-		  ft_printf.h
+		  ft_printf.h\
+		  ft_printf_err.h
 
 OBJS		= $(SRCS:.c=.o)
 DEPFILE		= $(OBJS:.o=.d)
