@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vduryee <vduryee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/02 13:49:14 by vduryee           #+#    #+#             */
-/*   Updated: 2026/11/07 11:33:06 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/24 13:32:59 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "ft_printf_err.h"
 
 static int	ft_print_mem(void *ptr)
 {
@@ -43,6 +44,19 @@ static int	ft_switch(char type, va_list args, int count)
 	return (count);
 }
 
+static int	ft_switch_err(char type, va_list args, int count)
+{
+	if (type == 'c')
+		count += ft_putchar_err(va_arg(args, int));
+	else if (type == 's')
+		count += ft_putstr_err(va_arg(args, char *));
+	else if (type == 'd' || type == 'i')
+		count += ft_putnbr_err(va_arg(args, int));
+	else if (type == '%')
+		count += ft_putchar_err('%');
+	return (count);
+}
+
 int	ft_printf(const char *format, ...)
 {
 	int		i;
@@ -64,6 +78,35 @@ int	ft_printf(const char *format, ...)
 		else if (format[i] == '%' && format[i + 1] != '\0')
 		{
 			count = (ft_switch(format[i + 1], args, count));
+			i++;
+		}
+		i++;
+	}
+	va_end (args);
+	return (count);
+}
+
+int	ft_printf_err(const char *format, ...)
+{
+	int		i;
+	int		count;
+	va_list	args;
+
+	if (!format)
+		return (-1);
+	i = 0;
+	count = 0;
+	va_start (args, format);
+	while (format[i])
+	{
+		if (format[i] != '%')
+		{
+			ft_putchar_err(format[i]);
+			count++;
+		}
+		else if (format[i] == '%' && format[i + 1] != '\0')
+		{
+			count = (ft_switch_err(format[i + 1], args, count));
 			i++;
 		}
 		i++;
