@@ -6,7 +6,7 @@
 /*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/19 14:47:16 by vduryee           #+#    #+#             */
-/*   Updated: 2026/11/25 15:05:08 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/25 16:54:32 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,19 @@ int	has_whitespace(const char *s)
 	return (0);
 }
 
-size_t count_words(char **tab)
+size_t	count_words(char **tab)
 {
-	size_t i;
-	
+	size_t	i;
+
 	i = 0;
 	while (tab[i])
 		i++;
 	return (i);
 }
 
-void free_tab(char **tab)
+void	free_tab(char **tab)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (tab[i])
@@ -77,8 +77,8 @@ int	bench_first_flag(t_data *d, int ac, char **av)
 	d->bench = 1;
 	if ((ac > 2) && algo_selector(av[2]) != -1)
 	{
-			d->algo = algo_selector(av[2]);
-			fst = 3;
+		d->algo = algo_selector(av[2]);
+		fst = 3;
 	}
 	return (fst);
 }

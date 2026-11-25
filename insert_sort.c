@@ -6,7 +6,7 @@
 /*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/20 18:00:33 by vduryee           #+#    #+#             */
-/*   Updated: 2026/11/25 08:48:19 by alegaspa         ###   ########.fr       */
+/*   Updated: 2026/11/25 16:48:37 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,13 @@ void	insert_push_b(t_data *d)
 	min = 0;
 	while (d->a.size != 0)
 	{
-		if(min == d->a.values[d->a.size - 1])
+		if (min == d->a.values[d->a.size - 1])
 		{
 			push(&d->a, &d->b, &d->count, 'b');
 			min++;
 		}
 		else
-			hide_and_seek_insert(d,min);
-		
+			hide_and_seek_insert(d, min);
 	}
 }
 
@@ -52,6 +51,6 @@ void	insert_push_a(t_data *d)
 
 void	insert_sort(t_data *d)
 {
-		insert_push_b(d);
-		insert_push_a(d);
+	insert_push_b(d);
+	insert_push_a(d);
 }

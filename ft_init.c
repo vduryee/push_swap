@@ -6,7 +6,7 @@
 /*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 22:15:39 by vduryee           #+#    #+#             */
-/*   Updated: 2026/11/25 14:59:03 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/25 16:51:15 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,10 +84,10 @@ static int	flag_checker(t_data *d, int ac, char **av)
 
 int	ft_init(t_data *d, int ac, char **av)
 {
-	int	fst;
-	int	words;
-	int init;
-	char **tab;
+	int		fst;
+	int		words;
+	int		init;
+	char	**tab;
 
 	fst = flag_checker(d, ac, av);
 	d->a.values = NULL;
@@ -97,11 +97,11 @@ int	ft_init(t_data *d, int ac, char **av)
 	if (words == 1 && has_whitespace(av[fst]))
 	{
 		tab = ft_split(av[fst], ' ');
-		if(!tab)
+		if (!tab)
 			return (0);
 		words = count_words(tab);
-		init = stack_init(&d->a, words) && stack_init(&d->b, words) 
-				&& fill_stack(&d->a, words, tab);
+		init = stack_init(&d->a, words) && stack_init(&d->b, words)
+			&& fill_stack(&d->a, words, tab);
 		free_tab(tab);
 		return (init);
 	}

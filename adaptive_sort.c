@@ -6,14 +6,14 @@
 /*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/25 10:43:53 by vduryee           #+#    #+#             */
-/*   Updated: 2026/11/25 13:40:54 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/25 16:54:50 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "structs.h"
 #include "algo_sort.h"
 
-void adaptive_sort(t_data *d)
+void	adaptive_sort(t_data *d)
 {
 	if (d->disorder < 0.2)
 		insert_sort(d);

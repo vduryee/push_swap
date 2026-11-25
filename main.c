@@ -6,7 +6,7 @@
 /*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/12 15:23:48 by alegaspa          #+#    #+#             */
-/*   Updated: 2026/11/25 14:17:14 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/25 17:17:19 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "ops.h"
 #include "algo_sort.h"
 
-static void handle_algo (t_data *d)
+static void	handle_algo(t_data *d)
 {
 	if (d->algo == 1)
 		insert_sort(d);
@@ -27,10 +27,9 @@ static void handle_algo (t_data *d)
 		adaptive_sort(d);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	t_data 	d;
-	int	i = 0;
+	t_data	d;
 
 	if (ac <= 1)
 	{
@@ -47,21 +46,11 @@ int main(int ac, char **av)
 		if (d.disorder)
 		{
 			handle_algo(&d);
-			// for debug purposes
-			i = ac - 2;
-			ft_printf("\n----------------------\n\n");
-			while (i > -1)
-			{
-				ft_printf("%d\t", d.a.values[i]);
-				ft_printf("%d\n", d.b.values[i]);
-				i--;
-			}
-			// remove until next comment above before push
 			if (d.bench)
 				print_bench(d);
 		}
-		free(d.a.values);
-		free(d.b.values);
 	}
+	free(d.a.values);
+	free(d.b.values);
 	return (0);
 }
