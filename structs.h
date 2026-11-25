@@ -6,21 +6,21 @@
 /*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/11 11:55:38 by vduryee           #+#    #+#             */
-/*   Updated: 2026/11/24 13:33:38 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/25 16:47:42 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
 
-#include "libft/libft.h"
-#include "ft_printf.h"
-#include "ft_printf_err.h"
-#include <stddef.h>
-#include <stdlib.h>
-#include <limits.h>
+# include "libft/libft.h"
+# include "ft_printf.h"
+# include "ft_printf_err.h"
+# include <stddef.h>
+# include <stdlib.h>
+# include <limits.h>
 
-typedef	struct s_stack
+typedef struct s_stack
 {
 	int		*values;
 	size_t	size;
@@ -35,14 +35,14 @@ typedef struct s_counter
 	int	pb;
 	int	ra;
 	int	rb;
-	int rra;
+	int	rra;
 	int	rrb;
-	int ss;
-	int rr;
-	int rrr;
-} t_counter;
+	int	ss;
+	int	rr;
+	int	rrr;
+}	t_counter;
 
-typedef	struct	s_data
+typedef struct s_data
 {
 	t_stack		a;
 	t_stack		b;
@@ -52,13 +52,5 @@ typedef	struct	s_data
 	int			init;
 	double		disorder;
 }	t_data;
-
-// values is a pointer to the 1st element (bottom) of the stack which is an array of ints.
-// size is the number of elements currently in the stack
-// capacity is the maximum number of elements the stack can hold, basically how much we told malloc to give us.
-
-/* The capacity of both our stacks (A and B) will always be the same n,
-	since to consider all scenarios, A or B could be filled with n values at some point;
-	this will ensure us that we can always store what we need.*/
 
 #endif

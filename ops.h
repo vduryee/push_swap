@@ -6,14 +6,14 @@
 /*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/13 10:20:54 by vduryee           #+#    #+#             */
-/*   Updated: 2026/11/17 22:11:47 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/25 16:41:03 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef OPS_H
 # define OPS_H
 
-#include "structs.h"
+# include "structs.h"
 
 void	swap(t_stack *s, t_counter *count, char c);
 void	push(t_stack *to, t_stack *from, t_counter *count, char c);

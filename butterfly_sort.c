@@ -6,12 +6,45 @@
 /*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/13 14:55:04 by alegaspa          #+#    #+#             */
-/*   Updated: 2026/11/25 08:17:39 by alegaspa         ###   ########.fr       */
+/*   Updated: 2026/11/25 17:33:31 by alegaspa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "structs.h"
 #include "ops.h"
+
+void	rotate_selector(t_data *d, int finder)
+{
+	if (finder > (int)d->a.size / 2)
+		rotate(&d->a, &d->count, 'a');
+	else
+		rev_rotate(&d->a, &d->count, 'a');
+}
+
+void	hide_and_seek_butterfly(t_data *d, int box, int range)
+{
+	int	max_finder;
+	int	min_finder;
+	int	count;
+	int	winner;
+
+	winner = 0;
+	max_finder = d->a.size - 1;
+	min_finder = 0;
+	count = 0;
+	while (d->a.values[min_finder] > (box * range) - 1)
+		min_finder++;
+	while (d->a.values[max_finder] > (box * range) - 1)
+	{
+		max_finder--;
+		count++;
+	}
+	if (count < min_finder + 1)
+		rotate_selector(d, max_finder);
+	else
+		rotate_selector(d, min_finder);
+}
+
 
 void	butterfly_push_b(t_data *d, int box, int range)
 {
@@ -22,7 +55,8 @@ void	butterfly_push_b(t_data *d, int box, int range)
 	while (i < (box * range) && d->a.size != 0)
 	{
 		while (d->a.values[d->a.size - 1] > (box * range) - 1)
-			rotate(&d->a, &d->count, 'a');
+			//rotate(&d->a, &d->count, 'a');
+			hide_and_seek_butterfly(d, box, range);
 		push(&d->a, &d->b, &d->count, 'b');
 		if (d->b.values[d->b.size - 1] < mid && d->b.size > 1)
 			rotate(&d->b, &d->count, 'b');
@@ -95,20 +129,22 @@ void	butterfly_sort(t_data *d)
 	int	i;
 	int	range;
 
-	i = 0;
+	i = 1;
 	range = 10;
-	if (d->a.capacity > 500 && d->a.capacity < 800)
-		range = 20;
+	if (d->a.capacity > 99 && d->a.capacity < 500)
+		range = 25;
+	if (d->a.capacity > 499 && d->a.capacity < 800)
+		range = 57;
 	else if (d->a.capacity > 800)
-		range = 30;
-	while (i < (int)(d->a.capacity / 10) + 1)
+		range = 88;
+	while (i < (int)(d->a.capacity / 10) + 2)
 	{
 		butterfly_push_b(d, i, range);
 		i++;
 	}
 	while (i > 0)
 	{
-		butterfly_push_a(d, i ,range);
+		butterfly_push_a(d, i, range);
 		i--;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/16 09:58:01 by alegaspa          #+#    #+#             */
-/*   Updated: 2026/11/17 22:11:55 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/25 16:50:12 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 static int	get_max(t_stack *a)
 {
-	int	i;
-	int	max;
+	int			i;
+	int			max;
 	static long	save_max = 2147483648;
 
 	i = 0;
 	max = -2147483648;
 	while (i < (int)a->capacity)
 	{
-		if (max < a->values[i] && a->values[i] < save_max) 
+		if (max < a->values[i] && a->values[i] < save_max)
 			max = a->values[i];
 		i++;
 	}
@@ -32,8 +32,8 @@ static int	get_max(t_stack *a)
 
 static int	get_min(t_stack *a)
 {
-	int	i;
-	int	min;
+	int			i;
+	int			min;
 	static long	save_min = -2147483649;
 
 	i = 0;
@@ -67,7 +67,7 @@ static int	*parse(t_stack *a)
 		j--;
 	}
 	return (tmp);
-}		
+}
 
 void	ft_normalize(t_stack *a)
 {

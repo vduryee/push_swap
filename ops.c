@@ -6,7 +6,7 @@
 /*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/12 10:42:44 by alegaspa          #+#    #+#             */
-/*   Updated: 2026/11/23 12:16:09 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/25 16:53:04 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	swap(t_stack *s, t_counter *count, char c)
 
 void	push(t_stack *from, t_stack *to, t_counter *count, char c)
 {
-	if(!from || !to)
+	if (!from || !to)
 		return ;
 	if (from->size > 0)
 	{
@@ -46,7 +46,6 @@ void	push(t_stack *from, t_stack *to, t_counter *count, char c)
 	else if (c == 'b')
 		count->pb++;
 	ft_printf("p%c\n", c);
-
 }
 
 void	rev_rotate(t_stack *s, t_counter *count, char c)
@@ -55,7 +54,7 @@ void	rev_rotate(t_stack *s, t_counter *count, char c)
 	size_t	i;
 	int		j;
 
-	if(!s)
+	if (!s)
 		return ;
 	i = 0;
 	j = 1;
@@ -72,7 +71,6 @@ void	rev_rotate(t_stack *s, t_counter *count, char c)
 	else if (c == 'b')
 		count->rrb++;
 	ft_printf("rr%c\n", c);
-
 }
 
 void	rotate(t_stack *s, t_counter *count, char c)
@@ -81,7 +79,7 @@ void	rotate(t_stack *s, t_counter *count, char c)
 	int	i;
 	int	j;
 
-	if(!s)
+	if (!s)
 		return ;
 	i = s->size - 1;
 	tmp = s->values[i];
