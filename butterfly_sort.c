@@ -6,22 +6,12 @@
 /*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/13 14:55:04 by alegaspa          #+#    #+#             */
-/*   Updated: 2026/11/23 16:54:14 by alegaspa         ###   ########.fr       */
+/*   Updated: 2026/11/25 08:17:39 by alegaspa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "structs.h"
 #include "ops.h"
-
-static int	ft_sqrt(int nb)
-{
-	int	i;
-
-	i = 0;
-	while ((i * i != nb) && i < nb)
-		i++;
-	return (i);
-}
 
 void	butterfly_push_b(t_data *d, int box, int range)
 {
@@ -40,11 +30,28 @@ void	butterfly_push_b(t_data *d, int box, int range)
 	}
 }
 
-void	butterfly_move_in_b(t_data *d, int i)
+int	verif_rotate(t_data *d, int i, int mid)
 {
+	int	j;
+
+	j = 3;
+	while (j < mid + 1)
+	{
+		if (d->b.values[d->b.size - j] == i - 1)
+			return (1);
+		j++;
+	}
+	return (0);
+}
+
+void	butterfly_move_in_b(t_data *d, int i, int range)
+{
+	int	mid;
+
+	mid = range / 2;
 	if (d->b.values[d->b.size - 2] == i - 1)
 			swap(&d->b, &d->count, 'b');
-	else if (d->b.size > 5 && (d->b.values[d->b.size - 3] == i - 1 || d->b.values[d->b.size - 4] == i - 1 || d->b.values[d->b.size - 5] == i - 1))
+	else if ((int)d->b.size > mid && verif_rotate(d, i, mid) == 1)
 			rotate(&d->b, &d->count, 'b');
 	else if (d->b.size > 0)
 			rev_rotate(&d->b, &d->count, 'b');
@@ -79,7 +86,7 @@ void	butterfly_push_a(t_data *d, int box, int range)
 			p = 1;
 		}
 		else
-			butterfly_move_in_b(d, i);
+			butterfly_move_in_b(d, i, range);
 	}
 }
 
@@ -90,8 +97,10 @@ void	butterfly_sort(t_data *d)
 
 	i = 0;
 	range = 10;
-	if (d->a.capacity > 500)
-		range = 1.5 * ft_sqrt(d->a.capacity);
+	if (d->a.capacity > 500 && d->a.capacity < 800)
+		range = 20;
+	else if (d->a.capacity > 800)
+		range = 30;
 	while (i < (int)(d->a.capacity / 10) + 1)
 	{
 		butterfly_push_b(d, i, range);
