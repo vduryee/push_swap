@@ -6,7 +6,7 @@
 #    By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/11/20 17:44:17 by alegaspa          #+#    #+#              #
-#    Updated: 2026/11/24 13:32:22 by vduryee          ###   ########.fr        #
+#    Updated: 2026/11/25 11:09:55 by vduryee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,9 @@ SRCS		= main.c\
 		  selector.c\
 		  ops.c\
 		  combined_ops.c\
-		  butterfly_sort.c\
 		  insert_sort.c\
+		  butterfly_sort.c\
+		  adaptive_sort.c\
 		  bench_helper.c\
 		  ft_printf.c\
 		  ft_printf_err_utils.c\

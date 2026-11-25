@@ -6,7 +6,7 @@
 /*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/18 13:53:03 by vduryee           #+#    #+#             */
-/*   Updated: 2026/11/25 12:58:59 by alegaspa         ###   ########.fr       */
+/*   Updated: 2026/11/25 15:46:16 by alegaspa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,6 @@
 
 void	insert_sort(t_data *d);
 void	butterfly_sort(t_data *d);
+void 	adaptive_sort(t_data *d);
 
 #endif

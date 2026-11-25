@@ -1,10 +1,8 @@
+*.txt
 a.out
 push_swap
-test.txt
 test
-args.txt
 args
-bench.txt
 checker_linux
 .a
 .o
