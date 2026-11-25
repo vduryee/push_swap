@@ -6,7 +6,7 @@
 /*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/12 15:23:48 by alegaspa          #+#    #+#             */
-/*   Updated: 2026/11/23 15:13:16 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/25 13:00:56 by alegaspa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void handle_algo (t_data *d)
 	if (d->algo == 1)
 		insert_sort(d);
 	else if (d->algo == 2)
-		butterfly_sort(&d->a, &d->b, &d->count);
+		butterfly_sort(d);
 	// else if (d.algo == 3)
 	// 	radix_sort(&d);
 	// else if (d.algo == 0)
@@ -30,7 +30,7 @@ static void handle_algo (t_data *d)
 int main(int ac, char **av)
 {
 	t_data 	d;
-	int	i = 0;
+//	int	i = 0;
 
 	if (ac <= 1)
 	{
@@ -46,14 +46,14 @@ int main(int ac, char **av)
 		d.disorder = compute_disorder(&d.a);
 		handle_algo(&d);
 		//for debug purposes
-		i = ac - 4;
+		/*i = ac - 4;
 		ft_printf("\n----------------------\n\n");
 		while (i > -1)
 		{
 			ft_printf("%d\t", d.a.values[i]);
 			ft_printf("%d\n", d.b.values[i]);
 			i--;
-		}
+		}*/
 		//remove until next comment above before push
 		if (d.bench)
 			print_bench(d);
