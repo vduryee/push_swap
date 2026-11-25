@@ -6,12 +6,25 @@
 /*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/20 18:00:33 by vduryee           #+#    #+#             */
-/*   Updated: 2026/11/23 17:05:26 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/25 08:48:19 by alegaspa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "structs.h"
 #include "ops.h"
+
+void	hide_and_seek_insert(t_data *d, int min)
+{
+	int	finder;
+
+	finder = 0;
+	while (d->a.values[finder] != min)
+		finder++;
+	if (finder < (int)d->a.size / 2)
+		rev_rotate(&d->a, &d->count, 'a');
+	else
+		rotate(&d->a, &d->count, 'a');
+}
 
 void	insert_push_b(t_data *d)
 {
@@ -26,7 +39,7 @@ void	insert_push_b(t_data *d)
 			min++;
 		}
 		else
-			rotate(&d->a, &d->count, 'a');
+			hide_and_seek_insert(d,min);
 		
 	}
 }
