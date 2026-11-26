@@ -6,7 +6,7 @@
 #    By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/11/20 17:44:17 by alegaspa          #+#    #+#              #
-#    Updated: 2026/11/25 11:09:55 by vduryee          ###   ########.fr        #
+#    Updated: 2026/11/26 09:20:53 by alegaspa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRCS		= main.c\
 		  combined_ops.c\
 		  insert_sort.c\
 		  butterfly_sort.c\
+		  butterfly_utils.c\
 		  adaptive_sort.c\
 		  bench_helper.c\
 		  ft_printf.c\
@@ -37,6 +38,7 @@ HEAD		= structs.h\
 		  helpers.h\
 		  ops.h\
 		  algo_sort.h\
+		  butterfly_utils.h\
 		  ft_printf.h\
 		  ft_printf_err.h
 
@@ -58,7 +60,7 @@ $(LIBFT): FORCE
 clean:
 	@$(MAKE) -C $(LIBFT_DIR) clean --no-print-directory
 	@rm -f $(OBJS) $(DEPFILE)
-	@echo "Le bordel .o et .d  est nettoyé patron !"
+	@echo "Le bordel .o et .d  est nettoyé patron O7 !"
 
 fclean: clean
 	@$(MAKE) -C $(LIBFT_DIR) fclean --no-print-directory

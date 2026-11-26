@@ -6,56 +6,23 @@
 /*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/13 14:55:04 by alegaspa          #+#    #+#             */
-/*   Updated: 2026/11/25 17:33:31 by alegaspa         ###   ########.fr       */
+/*   Updated: 2026/11/26 09:15:40 by alegaspa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "structs.h"
 #include "ops.h"
-
-void	rotate_selector(t_data *d, int finder)
-{
-	if (finder > (int)d->a.size / 2)
-		rotate(&d->a, &d->count, 'a');
-	else
-		rev_rotate(&d->a, &d->count, 'a');
-}
-
-void	hide_and_seek_butterfly(t_data *d, int box, int range)
-{
-	int	max_finder;
-	int	min_finder;
-	int	count;
-	int	winner;
-
-	winner = 0;
-	max_finder = d->a.size - 1;
-	min_finder = 0;
-	count = 0;
-	while (d->a.values[min_finder] > (box * range) - 1)
-		min_finder++;
-	while (d->a.values[max_finder] > (box * range) - 1)
-	{
-		max_finder--;
-		count++;
-	}
-	if (count < min_finder + 1)
-		rotate_selector(d, max_finder);
-	else
-		rotate_selector(d, min_finder);
-}
-
+#include "butterfly_utils.h"
 
 void	butterfly_push_b(t_data *d, int box, int range)
 {
 	static int	i = 0;
-	int	mid;
+	int			mid;
 
 	mid = (box * range) - (range / 2);
 	while (i < (box * range) && d->a.size != 0)
 	{
 		while (d->a.values[d->a.size - 1] > (box * range) - 1)
-			//rotate(&d->a, &d->count, 'a');
 			hide_and_seek_butterfly(d, box, range);
 		push(&d->a, &d->b, &d->count, 'b');
 		if (d->b.values[d->b.size - 1] < mid && d->b.size > 1)
@@ -64,45 +31,11 @@ void	butterfly_push_b(t_data *d, int box, int range)
 	}
 }
 
-int	verif_rotate(t_data *d, int i, int mid)
-{
-	int	j;
-
-	j = 3;
-	while (j < mid + 1)
-	{
-		if (d->b.values[d->b.size - j] == i - 1)
-			return (1);
-		j++;
-	}
-	return (0);
-}
-
-void	butterfly_move_in_b(t_data *d, int i, int range)
-{
-	int	mid;
-
-	mid = range / 2;
-	if (d->b.values[d->b.size - 2] == i - 1)
-			swap(&d->b, &d->count, 'b');
-	else if ((int)d->b.size > mid && verif_rotate(d, i, mid) == 1)
-			rotate(&d->b, &d->count, 'b');
-	else if (d->b.size > 0)
-			rev_rotate(&d->b, &d->count, 'b');
-}
-
-void	butterfly_push_a_helper(t_data *d, int *i, int *p)
-{
-	*i = *i - 1;
-	*p = 0;
-	swap(&d->a, &d->count, 'a');
-}
-
 void	butterfly_push_a(t_data *d, int box, int range)
 {
 	int	i;
 	int	p;
-	
+
 	p = 0;
 	i = d->b.size;
 	while (i > (box - 1) * range)
