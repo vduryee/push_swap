@@ -6,7 +6,7 @@
 /*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/20 18:00:33 by vduryee           #+#    #+#             */
-/*   Updated: 2026/11/25 16:48:37 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/26 09:44:08 by alegaspa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,33 @@ void	hide_and_seek_insert(t_data *d, int min)
 		rotate(&d->a, &d->count, 'a');
 }
 
+void	insert_push_b_helper(t_data *d, int *min, int *p)
+{
+	*min = *min + 1;
+	*p = 0;
+	swap(&d->b, &d->count, 'b');
+}
+
 void	insert_push_b(t_data *d)
 {
 	int	min;
+	int	p;
 
 	min = 0;
+	p = 0;
 	while (d->a.size != 0)
 	{
 		if (min == d->a.values[d->a.size - 1])
 		{
 			push(&d->a, &d->b, &d->count, 'b');
 			min++;
+			if (p == 1)
+				insert_push_b_helper(d, &min, &p);
+		}
+		else if (min + 1 == d->a.values[d->a.size - 1])
+		{
+			push(&d->a, &d->b, &d->count, 'b');
+			p = 1;
 		}
 		else
 			hide_and_seek_insert(d, min);
