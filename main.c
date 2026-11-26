@@ -6,7 +6,7 @@
 /*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/12 15:23:48 by alegaspa          #+#    #+#             */
-/*   Updated: 2026/11/25 17:38:58 by alegaspa         ###   ########.fr       */
+/*   Updated: 2026/11/26 09:58:42 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	main(int ac, char **av)
 	}
 	d.init = ft_init(&d, ac, av);
 	if (!d.init)
-		write (2, "Init\n", 5);
+		write (2, "Error\n", 6);
 	else
 	{
 		ft_normalize(&d.a);

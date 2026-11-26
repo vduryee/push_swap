@@ -6,22 +6,44 @@
 /*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/19 14:47:16 by vduryee           #+#    #+#             */
-/*   Updated: 2026/11/25 16:54:32 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/26 11:19:53 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "structs.h"
 #include "helpers.h"
 
-int	has_whitespace(const char *s)
+int	has_whitespace(char **tab)
+{
+	int		i;
+	char	*s;
+
+	i = 1;
+	while (tab[i])
+	{
+		s = tab[i];
+		while (*s >= '0' && *s <= '9')
+			s++;
+		while (*s)
+		{
+			if (*s == 32 || (*s >= 9 && *s <= 13))
+				return (i);
+			s++;
+		}
+		i++;
+	}
+	return (0);
+}
+
+int is_space_only(char *s)
 {
 	while (*s)
 	{
-		if ((*s == 32) || (*s >= 9 && *s <= 13))
-			return (1);
+		if (*s >= '0' && *s <= '9')
+			return (0);
 		s++;
 	}
-	return (0);
+	return (1);
 }
 
 size_t	count_words(char **tab)

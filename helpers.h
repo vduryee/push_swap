@@ -6,7 +6,7 @@
 /*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 22:25:16 by vduryee           #+#    #+#             */
-/*   Updated: 2026/11/25 16:52:16 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/26 11:53:13 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ void	print_disorder(double disorder);
 int		count_ops(t_counter count);
 char	*bench_algo(t_data d);
 void	print_bench(t_data d);
-int		has_whitespace(const char *s);
+int		has_whitespace(char **tab);
+int		is_space_only(char *s);
+int 	ft_init_helper(t_data *d, int words, char **av);
 size_t	count_words(char **tab);
 void	free_tab(char **tab);
 int		algo_first_flag(t_data *d, int ac, char **av);
