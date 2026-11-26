@@ -6,7 +6,7 @@
 /*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/12 15:23:48 by alegaspa          #+#    #+#             */
-/*   Updated: 2026/11/26 09:58:42 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/26 16:55:13 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	main(int ac, char **av)
 		write (2, "Error\n", 6);
 		return (0);
 	}
-	d.init = ft_init(&d, ac, av);
+	d.init = better_ft_init(&d, ac, av);
 	if (!d.init)
 		write (2, "Error\n", 6);
 	else

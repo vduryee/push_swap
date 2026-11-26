@@ -6,7 +6,7 @@
 /*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/11 11:55:38 by vduryee           #+#    #+#             */
-/*   Updated: 2026/11/25 16:47:42 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/26 10:39:32 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct s_data
 	int			algo;
 	int			bench;
 	int			init;
+	int			space;
 	double		disorder;
 }	t_data;
 
