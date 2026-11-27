@@ -6,7 +6,7 @@
 /*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/12 15:23:48 by alegaspa          #+#    #+#             */
-/*   Updated: 2026/11/26 16:55:13 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/27 10:34:34 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ static void	handle_algo(t_data *d)
 		insert_sort(d);
 	else if (d->algo == 2)
 		butterfly_sort(d);
-	// else if (d.algo == 3)
-	// 	radix_sort(&d);
+	// else if (d->algo == 3)
+	// 	radix_sort(d);
 	else if (d->algo == 0 || d->algo == -1)
 		adaptive_sort(d);
 }
@@ -36,7 +36,7 @@ int	main(int ac, char **av)
 		write (2, "Error\n", 6);
 		return (0);
 	}
-	d.init = better_ft_init(&d, ac, av);
+	d.init = ft_init(&d, ac, av);
 	if (!d.init)
 		write (2, "Error\n", 6);
 	else

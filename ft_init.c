@@ -6,66 +6,12 @@
 /*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 22:15:39 by vduryee           #+#    #+#             */
-/*   Updated: 2026/11/26 17:33:38 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/27 10:33:59 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "structs.h"
 #include "helpers.h"
-
-static int	conv_int(const char *s, int *save)
-{
-	long	n;
-	int		sign;
-
-	sign = 1;
-	n = 0;
-	// while (*s == ' ' || (*s >= 9 && *s <= 13))
-	// 	s++;
-	if (*s == '+' || *s == '-')
-	{
-		if (*s++ == '-')
-			sign *= -1;
-	}
-	if (*s < '0' || *s > '9')
-		return (0);
-	while (*s >= '0' && *s <= '9')
-	{
-		n = n * 10 + (*s - '0');
-		s++;
-		if (n * sign > INT_MAX || n * sign < INT_MIN)
-			return (0);
-	}
-	if (*s)
-		return (0);
-	*save = (int)(n * sign);
-	return (1);
-}
-
-static int	fill_stack(t_stack *a, size_t n, char **args)
-{
-	size_t	i;
-	size_t	j;
-	int		save;
-
-	i = 0;
-	while (n > i)
-	{
-		if (!conv_int(args[i], &save))
-			return (0);
-		j = 0;
-		while (i > j)
-		{
-			if (a->values[n - 1 - j] == save)
-				return (0);
-			j++;
-		}
-		a->values[n - 1 - i] = save;
-		i++;
-	}
-	a->size = n;
-	return (1);
-}
 
 static int	stack_init(t_stack *s, size_t n)
 {
@@ -84,24 +30,6 @@ int	flag_checker(t_data *d, int ac, char **av)
 	return (algo_first_flag(d, ac, av));
 }
 
-// int	ft_init(t_data *d, int ac, char **av)
-// {
-// 	int		fst;
-// 	int		words;
-
-// 	fst = flag_checker(d, ac, av);
-// 	d->a.values = NULL;
-// 	d->b.values = NULL;
-// 	d->count = (t_counter){0};
-// 	words = ac - fst;
-// 	d->space = has_whitespace(av);
-// 	if (!is_space_only(av[d->space]))
-// 		return (ft_init_helper(d, words, av));
-// 	if (!stack_init(&d->a, words) || !stack_init(&d->b, words))
-// 		return (0);
-// 	return (fill_stack(&d->a, words, av + fst));
-// }
-
 int ft_init_helper(t_data *d, int words, char *str)
 {
 	int		init;
@@ -116,4 +44,50 @@ int ft_init_helper(t_data *d, int words, char *str)
 		&& fill_stack(&d->a, words, tab);
 	free_tab(tab);
 	return (init);
+}
+
+static int	join_args(t_data *d, char **av, int words, int fst)
+{
+	char	*str;
+	char	*tmp;
+	
+	str = ft_strdup(av[fst]);
+	while (av[fst])
+	{
+		tmp = ft_strjoin(str, " ");
+		free(str);
+		str = ft_strdup(tmp);
+		free(tmp);
+		fst++;
+		if (av[fst] == 0)
+			return(ft_init_helper(d, words, str));
+		tmp = ft_strjoin(str, av[fst]);
+		free(str);
+		str = ft_strdup(tmp);
+		free(tmp);
+	}
+	return (0);
+}
+
+int ft_init(t_data *d, int ac, char **av)
+{
+	int		str;
+	int		fst;
+	int 	words;
+	
+	fst = flag_checker(d, ac, av);
+	words = ac - fst;
+	d->a.values = NULL;
+	d->b.values = NULL;
+	d->count = (t_counter){0};
+	d->space = has_whitespace(av);
+	if (d->space)
+	{
+		if (is_space_only(av[d->space]))
+			return (0);
+	}
+	str = join_args(d, av, words, fst);
+	if (!str)
+		return (0);
+	return (1);
 }

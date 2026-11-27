@@ -6,7 +6,7 @@
 #    By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/11/20 17:44:17 by alegaspa          #+#    #+#              #
-#    Updated: 2026/11/26 16:55:49 by vduryee          ###   ########.fr        #
+#    Updated: 2026/11/27 10:36:34 by vduryee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,9 +19,9 @@ LIBFT_DIR	= libft
 LIBFT		= $(LIBFT_DIR)/libft.a
 
 SRCS		= main.c\
-		  better_init.c\
 		  ft_init.c\
 		  ft_init_utils.c\
+		  ft_init_more_utils.c\
 		  ft_normalize.c\
 		  selector.c\
 		  ops.c\

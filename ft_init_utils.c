@@ -6,7 +6,7 @@
 /*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/19 14:47:16 by vduryee           #+#    #+#             */
-/*   Updated: 2026/11/26 11:19:53 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/27 10:32:15 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int	has_whitespace(char **tab)
 	while (tab[i])
 	{
 		s = tab[i];
+		if (!ft_strcmp(s, ""))
+			return (i);
 		while (*s >= '0' && *s <= '9')
 			s++;
 		while (*s)
@@ -69,38 +71,29 @@ void	free_tab(char **tab)
 	free(tab);
 }
 
-int	algo_first_flag(t_data *d, int ac, char **av)
+int	conv_int(const char *s, int *save)
 {
-	int	fst;
+	long	n;
+	int		sign;
 
-	fst = 1;
-	d->algo = algo_selector(av[1]);
-	d->bench = 0;
-	if (d->algo != -1)
+	sign = 1;
+	n = 0;
+	if (*s == '+' || *s == '-')
 	{
-		fst = 2;
-		if ((ac > 2) && bench_check(av[2]))
-		{
-			d->bench = 1;
-			fst = 3;
-		}
+		if (*s++ == '-')
+			sign *= -1;
 	}
-	else
-		d->algo = 0;
-	return (fst);
-}
-
-int	bench_first_flag(t_data *d, int ac, char **av)
-{
-	int	fst;
-
-	fst = 2;
-	d->algo = 0;
-	d->bench = 1;
-	if ((ac > 2) && algo_selector(av[2]) != -1)
+	if (*s < '0' || *s > '9')
+		return (0);
+	while (*s >= '0' && *s <= '9')
 	{
-		d->algo = algo_selector(av[2]);
-		fst = 3;
+		n = n * 10 + (*s - '0');
+		s++;
+		if (n * sign > INT_MAX || n * sign < INT_MIN)
+			return (0);
 	}
-	return (fst);
+	if (*s)
+		return (0);
+	*save = (int)(n * sign);
+	return (1);
 }
