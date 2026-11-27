@@ -6,7 +6,7 @@
 /*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 22:25:16 by vduryee           #+#    #+#             */
-/*   Updated: 2026/11/27 10:36:09 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/27 11:09:43 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		ft_strcmp(const char *s1, const char *s2);
 int		algo_selector(char *arg);
 int		bench_check(char *arg);
 int		ft_init(t_data *d, int ac, char **av);
-int 	better_ft_init(t_data *d, int ac, char **av);
+int		better_ft_init(t_data *d, int ac, char **av);
 int		flag_checker(t_data *d, int ac, char **av);
 double	compute_disorder(t_stack *a);
 void	print_disorder(double disorder);
@@ -28,7 +28,7 @@ void	print_bench(t_data d);
 int		has_whitespace(char **tab);
 int		is_space_only(char *s);
 int		conv_int(const char *s, int *save);
-int 	ft_init_helper(t_data *d, int words, char *str);
+int		ft_init_helper(t_data *d, int words, char *str);
 size_t	count_words(char **tab);
 void	free_tab(char **tab);
 int		fill_stack(t_stack *a, size_t n, char **args);

@@ -6,7 +6,7 @@
 /*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/19 14:47:16 by vduryee           #+#    #+#             */
-/*   Updated: 2026/11/27 10:32:15 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/27 11:09:17 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	has_whitespace(char **tab)
 	return (0);
 }
 
-int is_space_only(char *s)
+int	is_space_only(char *s)
 {
 	while (*s)
 	{
