@@ -6,7 +6,7 @@
 /*   By: vduryee <vduryee@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/19 11:32:47 by vduryee           #+#    #+#             */
-/*   Updated: 2026/11/25 17:01:45 by vduryee          ###   ########.fr       */
+/*   Updated: 2026/11/27 11:20:05 by vduryee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,9 @@ void	print_bench(t_data d)
 	print_disorder(d.disorder);
 	ft_printf_err("[bench] strategy: %s\n", bench_algo(d));
 	ft_printf_err("[bench] total_ops: %d\n", count_ops(d.count));
-	ft_printf_err("[bench] sa: %d, sb: %d, ss: %d, pa: %d, pb: %d\n",
+	ft_printf_err("[bench] sa: %d sb: %d ss: %d pa: %d pb: %d\n",
 		d.count.sa, d.count.sb, d.count.ss, d.count.pa, d.count.pb);
-	ft_printf_err("[bench] ra: %d, rb: %d, rr: %d, rra: %d, rrb: %d, rrr: %d\n",
+	ft_printf_err("[bench] ra: %d rb: %d rr: %d rra: %d rrb: %d rrr: %d\n",
 		d.count.ra, d.count.rb, d.count.rr, d.count.rra,
 		d.count.rrb, d.count.rrr);
 }
